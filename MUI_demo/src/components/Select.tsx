@@ -72,8 +72,14 @@ const Select = () => {
               <Box sx={{ width: "100%" }}>
                 <ListItem
                   secondaryAction={
-                    <IconButton edge="end" onClick={() => handleExpand(index1)}>
-                      <KeyboardArrowDownIcon />
+                    <IconButton edge="end" onClick={() => handleExpand(index1)} >
+                      {view[index1] ? (
+                        <KeyboardArrowDownIcon
+                          sx={{ transform: "rotate(180deg)" }}
+                        />
+                      ) : (
+                        <KeyboardArrowDownIcon />
+                      )}
                     </IconButton>
                   }
                 >
@@ -89,6 +95,7 @@ const Select = () => {
                     // display: "flex",
                     flexDirection: "column",
                     marginLeft: 5,
+
                     display: view[index1] ? "flex" : "none"
                   }}
                 >
@@ -96,12 +103,12 @@ const Select = () => {
                     (sub: string, index2: number) => {
                       return (
                         <ListItem>
-                          <ListItemButton>
-                            <ListItemIcon
-                              onClick={() =>
-                                handleSubListItemClick(index1, index2)
-                              }
-                            >
+                          <ListItemButton
+                            onClick={() =>
+                              handleSubListItemClick(index1, index2)
+                            }
+                          >
+                            <ListItemIcon>
                               <Checkbox checked={checked[index1].sub[index2]} />
                             </ListItemIcon>
                             <ListItemText primary={sub}></ListItemText>

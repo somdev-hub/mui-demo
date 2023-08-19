@@ -32,18 +32,20 @@ const Table = () => {
       setData(res);
     });
   }, []);
+  console.log(data);
 
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 100 },
+    { field: "userId", headerName: "User ID", width: 100 },
     { field: "title", headerName: "Title", width: 350 },
     { field: "body", headerName: "Body", width: 600 }
   ];
   return (
-    <Box sx={{ width: "75%", height: "100%", mt: 5 }}>
+    <Box sx={{ width: "auto", height: "100%", mt: 5 }}>
       <DataGrid
         rows={data}
         columns={columns}
-        sx={{bgcolor: "white"}}
+        sx={{ bgcolor: "white" }}
         initialState={{
           pagination: {
             paginationModel: {
