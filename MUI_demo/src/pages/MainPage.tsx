@@ -15,7 +15,7 @@ const MainPage = () => {
 
   useEffect(() => {
     if (!userData.name)
-      navigate("/login", { state: { message: "Please login first" } });
+      navigate("/login", { state: { message: "Please register first" } });
   }, []);
 
   return (
